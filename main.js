@@ -40,9 +40,14 @@ var fps = 0;
 var fpsCount = 0;
 var fpsTime = 0;
 
+//COMMENTED THIS OUT
 // load an image to draw
-var chuckNorris = document.createElement("img");
-chuckNorris.src = "hero.png";
+//var chuckNorris = document.createElement("img");
+//chuckNorris.src = "hero.png";
+
+//ADDED THESE LINES
+var keyboard = new Keyboard();
+var player = new Player();
 
 function run()
 {
@@ -51,8 +56,12 @@ function run()
 	
 	var deltaTime = getDeltaTime();
 	
-	context.drawImage(chuckNorris, SCREEN_WIDTH/2 - chuckNorris.width/2, SCREEN_HEIGHT/2 - chuckNorris.height/2);
+	//COMMENTED THIS OUT
+	//context.drawImage(chuckNorris, SCREEN_WIDTH/2 - chuckNorris.width/2, SCREEN_HEIGHT/2 - chuckNorris.height/2);
 	
+	//ADDED THESE LINES
+	player.update(deltaTime);
+	player.draw();
 		
 	// update the frame counter 
 	fpsTime += deltaTime;

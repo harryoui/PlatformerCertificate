@@ -1,9 +1,9 @@
-var Player = function()
+var Enemy = function()
 {
 	this.image = document.createElement("img");
 
-	this.x = canvas.width / 2;
-	this.y = canvas.height / 2;
+	this.x = (canvas.width / 2) + 180;
+	this.y = (canvas.height /2) + 180;
 	
 	this.width = 159;
 	this.height = 163;
@@ -15,22 +15,22 @@ var Player = function()
 	
 	this.rotation = 0;
 	
-	this.image.src = "hero.png";
+	this.image.src = "villain.png";
 };
 
-Player.prototype.update = function(deltaTime)
+Enemy.prototype.update = function(deltaTime)
 {
 	if ( keyboard.isKeyDown(keyboard.KEY_SPACE) )
 	{
-		this.rotation += deltaTime;
+		this.rotation -= deltaTime;
 	}
 	else
 	{
-		this.rotation -= deltaTime;
+		this.rotation += deltaTime;
 	}
 }
 
-Player.prototype.draw = function()
+Enemy.prototype.draw = function()
 {
 	context.save();
 	

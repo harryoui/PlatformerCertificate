@@ -44,7 +44,7 @@ Vector2.prototype.length = function()
 	return result;
 }
 
-Vector2.prototpe.normalize = function()
+Vector2.prototype.normalize = function()
 {
 	var len = this.length();
 	

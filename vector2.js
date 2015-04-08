@@ -21,8 +21,8 @@ Vector2.prototype.subtract = function( other_vector )
 {
 	var result = new Vector2();
 
-	result.x = this.x + other_vector.x;
-	result.y = this.y + other_vector.y;
+	result.x = this.x - other_vector.x;
+	result.y = this.y - other_vector.y;
 	
 	return result;
 }
@@ -32,18 +32,18 @@ Vector2.prototype.multiplyScalar = function( scalar )
 {
 	var result = new Vector2();
 
-	result.x = this.x * scalar.x;
-	result.y = this.y * scalar.y;
+	result.x = this.x * scalar;
+	result.y = this.y * scalar;
 	
 	return result;
 }
-
-Vector2.prototype.length = function()
+//LENGTH
+Vector2.prototype.length = function( length )
 {
 	var result = Math.squrt(this.x * this.x + this.y * this.y);
 	return result;
 }
-
+//NORMALIZING THE VECTOR
 Vector2.prototype.normalize = function()
 {
 	var len = this.length();
@@ -55,7 +55,7 @@ Vector2.prototype.normalize = function()
 	
 	return result;
 }
-
+//SET FUNCTION
 Vector2.prototype.set = function(x, y)
 {
 	this.x = x;

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="60" height="18" tilewidth="35" tileheight="35" nextobjectid="1">
+ <tileset firstgid="1" name="Default Tileset" tilewidth="70" tileheight="70" spacing="2" margin="2">
+  <image source="tileset.png" width="1024" height="1024"/>
+ </tileset>
+ <layer name="Background" width="60" height="18">
+  <data encoding="base64" compression="zlib">
+   eJztltEJACEIQF3nVmildrmZ7ysI8iwtQdMHIhRB8VIEiMmrnKuRHJXbvaZf3bzj4WEEENkL1H3/3jzDitcKo2OOX8q7FzTu7KF+pT3Zq9+Tf9mKV8xztPqVsuOXcwZbk/bpU54TPit+V/pv6fawaMzmp1vmq0TOB/r6YoM=
+  </data>
+ </layer>
+ <layer name="FakePlatforms" width="60" height="18">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo4B4sH+gHTAKRsEoGAWjYBSMghEBlg60A0YBTYAPGn8tDnoUjEwwCwfdNwBuGQVDEwAATRIGFA==
+  </data>
+ </layer>
+ <layer name="Platforms" width="60" height="18">
+  <data encoding="base64" compression="zlib">
+   eJxjYBhZIHugHUBH0DfQDhgAMBq/wxsMpvidB6UnUpmGgcEav31oNDUBsfHrToA/FMBo/CLAYIy/CVCa3Hw8WONXA0rTMn5X0cBsSgG1/TtY45eWABa/K6E0tnjWwUHjAoTkiQXo6ZrU/DoJzbyRHL/oNHJcWkHZ6DQuQEi+AQdNazAS4xe9bh/uNACl1jJ+
+  </data>
+ </layer>
+ <layer name="Ladders" width="60" height="18">
+  <data encoding="base64" compression="zlib">
+   eJzt1cENACAIQ1H2HwcX9MyNRGxj/G8BCIUQAZXlbgBXpagOe+ShyldVB1V37qf3R74e3bmTz5tU+fJ/Pfi/mEC+/9jX2Qsl
+  </data>
+ </layer>
+ <layer name="Death" width="60" height="18">
+  <data encoding="base64" compression="zlib">
+   eJztxaEBAAAEADD/n+Aeh0miIGhbWQQAAADc1PLIZfjSSe4EGw==
+  </data>
+ </layer>
+ <layer name="Finish" width="60" height="18">
+  <data encoding="base64" compression="zlib">
+   eJztzgENAAAIA6DnN7UxrhskIAEAAIAfph3grAU0BwCL
+  </data>
+ </layer>
+</map>

@@ -4,6 +4,12 @@ var context = canvas.getContext("2d");
 var startFrameMillis = Date.now();
 var endFrameMillis = Date.now();
 
+//Display error message if did not reinput 'level1 = ' on level1.json
+if (typeof(level1) === "undefined")
+{
+	alert("ADD 'level1 = ' TO JSON FILE");
+}
+
 ////FULL SCREEN-IFY
 //        var canvas = document.getElementById('gameCanvas');
 // 
@@ -56,6 +62,18 @@ var LAYER_PLATFORMS = 2;
 var LAYER_LADDERS = 3;
 var LAYER_DEATH = 4;
 var LAYER_FINISH = 5;
+
+var left = 0;
+var right = 1;
+
+var ANIM_IDLE_LEFT = 0;
+var ANIM_JUMP_LEFT = 1;
+var ANIM_WALK_LEFT = 2;
+var ANIM_IDLE_RIGHT = 3;
+var ANIM_JUMP_RIGHT = 4;
+var ANIM_WALK_RIGHT = 5;
+
+var ANIM_MAX = 6;
 
 var tileset = document.createElement("img");
 tileset.src = "tileset.png";
@@ -138,11 +156,6 @@ function cellAtPixelCoord(layer, x, y)
 //DRAWS THE MAP
 function drawMap()
 {
-
-	if (typeof(level1) === "undefined")
-	{
-		alert("ADD 'level1 = ' TO JSON FILE");
-	}
 	//this loops over all the layers in our tilemap
 	for(var layerIdx=0; layerIdx<LAYER_COUNT; layerIdx++)
 	{
@@ -237,6 +250,11 @@ function run()
 	
 	var deltaTime = getDeltaTime();
 	
+	if (deltaTime > 0.03)
+	{
+		deltaTime = 0.03;
+	}
+	
 	//COMMENTED THIS OUT
 	//context.drawImage(chuckNorris, SCREEN_WIDTH/2 - chuckNorris.width/2, SCREEN_HEIGHT/2 - chuckNorris.height/2);
 	
@@ -245,8 +263,8 @@ function run()
 	player.update(deltaTime);
 	player.draw();
 	
-	enemy.update(deltaTime);
-	enemy.draw();
+	//enemy.update(deltaTime);
+	//enemy.draw();
 		
 	// update the frame counter 
 	fpsTime += deltaTime;

@@ -246,7 +246,9 @@ var fpsTime = 0;
 //ADDED THESE LINES
 var keyboard = new Keyboard();
 var player = new Player();
-var enemy = new Enemy();
+var enemy = new Enemy(5);
+//Enemy(1).position(100,100)
+
 
 var timer = 0;
 

@@ -187,9 +187,6 @@ Player.prototype.update = function(deltaTime)
 		{
 			if (keyboard.isKeyDown(keyboard.KEY_UP))
 			{
-				playerDrag = 0;
-				playerGravity = TILE * 9.8 * 0;
-				jumpForce = 0;
 				player.velocity.y =(player.velocity.y-=50);
 			}
 		}

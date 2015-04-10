@@ -25,7 +25,6 @@ Enemy.prototype.update = function(deltaTime)
 							//HOW TO SHOOT
 							//[]how to get spike ball destroyed by player bullets
 							//how to set player gravity, drag and jump to zero in section
-							
 	
 	//COLLISIONS
 	var collisionOffset = new Vector2();

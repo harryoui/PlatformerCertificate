@@ -15,7 +15,7 @@
  </layer>
  <layer name="Platforms" width="61" height="18">
   <data encoding="base64" compression="zlib">
-   eJxjYBh5IJvK5klR2Txqgr6BdsAAAmrH82AGo/E8OMA8KD2RyjQMUBLP7hToJQb0odHUBvjimdZ+ozcYzPl5ION5sIEJUJrcfD2Y41kDStM6nlfRyHxKALX9PJjjmdYAFs8r8aiRgdI6UFqLRDsaCNCNOPShp3FS8+8kNPNG4xkRh9hoKygbnSYWHCGSpjUYyfEsAMUMI4CGxTMA84snUA==
+   eJxjYBh5IJvK5klR2Txqgr6BdsAAAmrH82AGo/E8OMA8KD2RSvQkNPMpiWd3CvQSA/rQaGoDfPFMa7/RGwzm/DyQ8TxYgSYJGBkM5njWgNK0judVNDKfEkBtPw/meKY1gMXzSjxqZKC0DpTWItGOBgJ0Iw596Gkcvb4lFYzGMyIOsdFWUDY6TSw4QiRNazCS41kAihlGAA2LZwDiuiEn
   </data>
  </layer>
  <layer name="Ladder" width="61" height="18">
@@ -30,7 +30,7 @@
  </layer>
  <layer name="Finish" width="61" height="18">
   <data encoding="base64" compression="zlib">
-   eJztzgENAAAIA6DnN7UxPh0kIAEAAID/ph3ghAU6xwCL
+   eJztzgENAAAIA6DnN7UxPh0kIAEAAIC/ph3glAU/FwCL
   </data>
  </layer>
 </map>

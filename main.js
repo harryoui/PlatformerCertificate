@@ -53,15 +53,20 @@ var TILE = 35;
 var TILESET_TILE = TILE * 2;
 var TILESET_PADDING = 2;
 var TILESET_SPACING = 2;
-var TILESET_COUNT_X = 14;
+var TILESET_COUNT_X = 14
+;
 var TILESET_COUNT_Y = 14;
 
 var PLAYER_BACKGROUND = 0;
 var LAYER_FAKEPLATFORMS = 1;
 var LAYER_PLATFORMS = 2;
-var LAYER_LADDERS = 3;
+var LAYER_LADDER = 3;
 var LAYER_DEATH = 4;
 var LAYER_FINISH = 5;
+
+var score = 0;
+var deathHeart = document.createElement("img");
+deathHeart.src = "heart.png";
 
 var left = 0;
 var right = 1;
@@ -130,13 +135,13 @@ function pixelToTile(pixel)
 function cellAtTileCoord(layer, tx, ty)
 {
 	//if off the top, left or right of the map
-	if ( tx < 0 || tx > MAP.tw || ty < 0 )
+	if ( tx < 0 || tx > MAP.tw )
 	{
 		return 1;
 	}
 	
 	//if off the bottom of the map
-	if ( ty >= MAP.th )
+	if ( ty >= MAP.th || ty < 0)
 	{
 		return 0;
 	}
@@ -154,7 +159,7 @@ function cellAtPixelCoord(layer, x, y)
 }
 
 //DRAWS THE MAP
-function drawMap()
+function drawMap(offsetX, offsetY)
 {
 	//this loops over all the layers in our tilemap
 	for(var layerIdx=0; layerIdx<LAYER_COUNT; layerIdx++)
@@ -185,9 +190,9 @@ function drawMap()
 					var sy = TILESET_PADDING + (Math.floor(tileIndex / TILESET_COUNT_X)) *
 												(TILESET_TILE + TILESET_SPACING);
 					//destination x on the canvas
-					var dx = x * TILE;
+					var dx = x * TILE - offsetX;
 					//destination y on the canvas
-					var dy = (y-1) * TILE;
+					var dy = (y-1) * TILE - offsetY;
 					
 					context.drawImage(tileset, sx, sy, TILESET_TILE, TILESET_TILE,
 												dx, dy, TILESET_TILE, TILESET_TILE);
@@ -243,25 +248,80 @@ var keyboard = new Keyboard();
 var player = new Player();
 var enemy = new Enemy();
 
+var timer = 0;
+
+var bgMusic = new Howl(
+	{
+		urls:["background1.mp3"],
+		loop:true,
+		buffer:true,
+		volume:0.5
+	});
+bgMusic.play();
+
 function run()
-{	
+{
 	context.fillStyle = "#ccc";
 	context.fillRect(0, 0, canvas.width, canvas.height);
 	
 	var deltaTime = getDeltaTime();
+	
+	timer += deltaTime;
 	
 	if (deltaTime > 0.03)
 	{
 		deltaTime = 0.03;
 	}
 	
-	//COMMENTED THIS OUT
-	//context.drawImage(chuckNorris, SCREEN_WIDTH/2 - chuckNorris.width/2, SCREEN_HEIGHT/2 - chuckNorris.height/2);
+	var xScroll = player.position.x - player.startPos.x;
+	var yScroll = player.position.y - player.startPos.y;
 	
-	//ADDED THESE LINES
-	drawMap();
-	player.update(deltaTime);
-	player.draw();
+	if ( xScroll < 0 )
+		xScroll = 0;
+	if ( xScroll > MAP.tw * TILE - canvas.width)
+		xScroll = MAP.tw * TILE - canvas.width;
+		
+	if ( yScroll < 0 )
+		yScroll = 0;
+	if ( yScroll > MAP.th * TILE - canvas.height)
+		yScroll = MAP.th * TILE - canvas.height;
+
+	drawMap(xScroll, yScroll);
+	
+	enemy.update(deltaTime);
+		
+	enemy.draw(xScroll, yScroll);
+	
+	if ( player.health > 0 )
+	{
+		player.update(deltaTime);
+		
+		player.draw(xScroll, yScroll);
+	}
+	
+	for ( var heart = 0 ; heart < player.health ; ++heart)
+	{
+		context.drawImage(deathHeart, 0+75*heart, 60, 64, 55);
+	}
+	
+	
+	context.fillStyle = "black";
+	context.font = "28px Arial";
+	
+	var timerSeconds = Math.floor(timer);
+	var timerMilliseconds = Math.floor((timer - timerSeconds) * 10);
+	var textToDisplay = "Level Timer: " + timerSeconds;
+	context.fillText(textToDisplay, 0, 50)
+	
+	if ( player.health <= 0 )
+	{		
+		timer = -0;
+		player.position.set(250, 450);
+		player.velocity.set(0,0);
+		player.hurtTimer = 0;
+		player.health = 3;
+
+	}
 	
 	//enemy.update(deltaTime);
 	//enemy.draw();

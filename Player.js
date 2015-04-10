@@ -35,6 +35,11 @@ var Player = function()
 	this.sprite.buildAnimation(12, 8, 165, 126, 0.05,
 	[65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78]); //RIGHT WALK ANIMATION
 	
+	//this.sprite.buildAnimation(12, 8, 165, 126, 0.05,
+	//[42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52]); //CLIMB ANIMATION
+	
+	this.health = 3;
+	
 	//set width and height to be the correct size of the image file
 	this.width = 165;
 	this.height = 125;
@@ -43,11 +48,17 @@ var Player = function()
 		this.sprite.setAnimationOffset(i, -this.width/2, -this.height/2);
 	}
 	
+	this.startPos = new Vector2();
+	this.startPos.set(250, 450);
+	
 	this.position = new Vector2();
-	this.position.set(250, 450);
+	this.position.set(this.startPos.x, this.startPos.y);
+	
+
 	
 	this.velocity = new Vector2() ;
 	
+	this.hurtTimer = 0;
 	
 	this.jumping = false;
 	this.falling = false;
@@ -158,6 +169,54 @@ Player.prototype.update = function(deltaTime)
 	var cell_down = cellAtTileCoord(LAYER_PLATFORMS, tx, ty+1);
 	var cell_diag = cellAtTileCoord(LAYER_PLATFORMS, tx+1, ty+1);
 	
+	
+	var deathcell = cellAtTileCoord(LAYER_DEATH, tx, ty);
+	var deathcell_right = cellAtTileCoord(LAYER_DEATH, tx+1, ty);
+	var deathcell_down  = cellAtTileCoord(LAYER_DEATH, tx, ty+1);
+	var deathcell_diag  = cellAtTileCoord(LAYER_DEATH, tx+1, ty+1);
+	
+	var laddercell = cellAtTileCoord(LAYER_LADDER, tx, ty);
+	var laddercell_right = cellAtTileCoord(LAYER_LADDER, tx+1, ty);
+	var laddercell_down  = cellAtTileCoord(LAYER_LADDER, tx, ty+1);
+	var laddercell_diag  = cellAtTileCoord(LAYER_LADDER, tx+1, ty+1);
+	
+		if ( laddercell || 
+		(laddercell_right && nx ) ||
+		(laddercell_down && ny ) ||
+		(laddercell_diag && nx && ny))
+		{
+			if (keyboard.isKeyDown(keyboard.KEY_UP))
+			{
+				playerDrag = 0;
+				playerGravity = TILE * 9.8 * 0;
+				jumpForce = 0;
+				player.velocity.y =(player.velocity.y-=50);
+			}
+		}
+		else
+		{
+			//playerDrag = 12;
+			//playerGravity = TILE * 9.8 * 7;
+			//jumpForce = 45000;
+		}
+	
+	if ( deathcell || 
+		(deathcell_right && nx ) ||
+		(deathcell_down && ny ) ||
+		(deathcell_diag && nx && ny))
+	{
+		if (this.hurtTimer <= 0 )
+		{
+			this.health -= 1;
+			this.hurtTimer = 2;
+			this.velocity.set(-500, -500);
+		}
+	}
+	
+	this.hurtTimer -= deltaTime;
+	
+	
+	
 	//ACTUAL COLLISION!
 	if ( this.velocity.y > 0 ) //if moving down
 	{
@@ -202,7 +261,14 @@ Player.prototype.update = function(deltaTime)
 	}
 }
 
-Player.prototype.draw = function()
+Player.prototype.draw = function(offsetX, offsetY)
 {
-	this.sprite.draw(context, this.position.x, this.position.y);
+	if ( this.hurtTimer <= 0 || (this.hurtTimer*4 - Math.floor(this.hurtTimer*4)) > 0.5)
+	{
+		this.sprite.draw(context, this.position.x - offsetX, this.position.y - offsetY);
+	}
+	context.fillStyle = "black";
+	context.font = "28px Arial";
+	var textToDisplay = "HP: " + this.health;
+	//context.fillText(textToDisplay, canvas.width-1200, 50);
 }

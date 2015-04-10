@@ -1,36 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="60" height="18" tilewidth="35" tileheight="35" nextobjectid="1">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="61" height="18" tilewidth="35" tileheight="35" nextobjectid="1">
  <tileset firstgid="1" name="Default Tileset" tilewidth="70" tileheight="70" spacing="2" margin="2">
   <image source="tileset.png" width="1024" height="1024"/>
  </tileset>
- <layer name="Background" width="60" height="18">
+ <layer name="Background" width="61" height="18">
   <data encoding="base64" compression="zlib">
-   eJxjYBiZQHqE0CMVDHS4j8YvbcFAhzu+eNAkATPgoYcKwOdeXH4mBAY6PqkVv/jifagAWrh5oOOTmPjNhvJJpYdq/FIzLQ90fOKL55GWf8kF5MZvH4nqsQFCeYzW8TwKSAMDlY8poUfB8AcAggoluw==
+   eJztlssNwCAMQ7NHJ2A29r9XvYNL+FmR8yTka8jDEma6PCKpDnv/6fkO7P0jH8VxDGQk0My9e4/A9rrLM/IfiVOzs72Oev6ozozueee7ZntFvhX7PMuK51bHvP+dv86d9p3Mwer1SiZavGkbJS8=
   </data>
  </layer>
- <layer name="FakePlatforms" width="60" height="18">
+ <layer name="FakePlatforms" width="61" height="18">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFtARSVFLHS6QYPnNwyRHrxlFAGliKQ5zc8CZF32hcEwdGwwMVjIbHKBgsQGKgHTAKaApUiFSHqx4dBUMbLIDSDWj0KBgFIHAEB903AG4ZBUMTAADICAc5
+   eJxjYBgFtAZSVFLHS6QYIXNwyRPrzlFAOliKQ5zcMCdV32icEw9GwwQTjIbJKBiMQGKgHTAK6AJUiFSHq54dBcMDLIDSDWj0KBgFxIC+gXbAKBiSAABXzATt
   </data>
  </layer>
- <layer name="Platforms" width="60" height="18">
+ <layer name="Platforms" width="61" height="18">
   <data encoding="base64" compression="zlib">
-   eJxjYBhZIJvK5klR2Txqgr6BdsAAAGrH72AGo/E7sGAelJ5IZRoGyI1fdzL1EQv60GhqAnzxS2t/0RsM1vw7UPE72MAEKE1uPh6s8asBpWkZv6toYDalgNr+HazxS0sAi9+VeNTIQGkdKK1Foh0NBOhGHPrQ0zWp+XUSmnkjOX518NBWUDY6TSw4QiRNazAS41cAihkGOU0tswAprybS
+   eJxjYBh5IJvK5klR2Txqgr6BdsAAAmrH82AGo/E8OMA8KD2RyjQMUBLP7hToJQb0odHUBvjimdZ+ozcYzPl5ION5sIEJUJrcfD2Y41kDStM6nlfRyHxKALX9PJjjmdYAFs8r8aiRgdI6UFqLRDsaCNCNOPShp3FS8+8kNPNG4xkRh9hoKygbnSYWHCGSpjUYyfEsAMUMI4CGxTMA84snUA==
   </data>
  </layer>
- <layer name="Ladders" width="60" height="18">
+ <layer name="Ladder" width="61" height="18">
   <data encoding="base64" compression="zlib">
-   eJzt1cENACAIQ1H2H0cX9MyNxNgG/G8BCIUQAZXtbgBPLVEd9shDla+qDrLq3G/vj3w9qnMnn55U+fJ/Z+P+ZyPffxzrhApz
+   eJzt0UENAAAIw0CeGMC/VVywkPYUrFmVLnV6QIDNDDYz2MxAbCYi/jzpAZKkFxbk5QBe
   </data>
  </layer>
- <layer name="Death" width="60" height="18">
+ <layer name="Death" width="61" height="18">
   <data encoding="base64" compression="zlib">
-   eJztxSEBAAAIA7D3z0UwKhyD2swSAAAAuJly+LKytwPV
+   eJztzDENAAAIBLH3rwthWCCQMLXLbZcAAADAnxr2+oONBh6pBiE=
   </data>
  </layer>
- <layer name="Finish" width="60" height="18">
+ <layer name="Finish" width="61" height="18">
   <data encoding="base64" compression="zlib">
-   eJztzgENAAAIA6DnN7UxrhskIAEAAIAfph3grAU0BwCL
+   eJztzgENAAAIA6DnN7UxPh0kIAEAAID/ph3ghAU6xwCL
   </data>
  </layer>
 </map>

@@ -17,11 +17,12 @@ var Enemy = function()
 Enemy.prototype.update = function(deltaTime)
 {
 	var acceleration = new Vector2();
-	var enemyAccel = 4000; //[]how do I make this have also a vertical movement?
+	var enemyAccel = 4000; //[]how do I make this have also a vertical movement? Maybe rebound?
 	var enemyDrag = 10;		//[]how do I make multiple of these enemies with either up/down or left/right movement?
 							//[]how do I make multiple of these enemies with different spawn points in selected locations?
 							//stop weird lines on screen and weird 'tears'?
-							//[]how to get spike ball to collide with player and respawn
+							//[]how to get spike ball to collide with player and make player respawn
+							//HOW TO SHOOT
 							//[]how to get spike ball destroyed by player bullets
 							//how to set player gravity, drag and jump to zero in section
 	
